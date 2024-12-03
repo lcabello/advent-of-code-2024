@@ -26,8 +26,8 @@ const calculateDistance = (leftArray: number[], rightArray: number[]): number =>
     return 0;
   }
 
-  const left = leftArray.shift() || 0;
-  const right = rightArray.shift() || 0;
+  const left = leftArray.pop() || 0;
+  const right = rightArray.pop() || 0;
 
   return Math.abs(left - right) + calculateDistance(leftArray, rightArray);
 }
