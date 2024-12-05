@@ -1,16 +1,7 @@
+import { readDocument } from '../utils/document-reader.ts';
+
 const leftColumn: number[] = [];
 const rightColumn: number[] = [];
-
-
-const readDocument = async (documentName: string) => {
-  try {
-    const data = await Deno.readTextFile(documentName);
-    return data;
-  } catch (err) {
-    console.error(`Error reading file: ${err}`);
-    return '';
-  }
-}
 
 const parseData = (data: string) => {
   const lines = data.split('\n');
@@ -44,5 +35,5 @@ const calculateDistance = (leftArray: number[], rightArray: number[]): number =>
   rightColumn.sort((a, b) => a - b);
 
   const output = calculateDistance(leftColumn, rightColumn);
-  console.log(output);
+  console.log(`Result: ${output}`);
 })();
